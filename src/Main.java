@@ -1,6 +1,6 @@
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
-import org.apache.poi.ss.util.CellReference;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -26,21 +26,23 @@ public class Main {
         String fileLocation = "C:\\Users\\CP365941\\Downloads\\Code\\Java\\Excel reader\\input data.xlsx";
         String nameOfSheet = "Sheet1";
 
-        //Create Workbook instance holding reference to .xlsx file
+        // 1. Create Workbook instance holding reference to .xlsx file
         OPCPackage opcPackage = OPCPackage.open(new File(fileLocation));
-        XSSFWorkbook wb = new XSSFWorkbook(opcPackage);
+        XSSFWorkbook workbook = new XSSFWorkbook(opcPackage);
 
-        // Get the excel sheet
-        XSSFSheet sheet = wb.getSheet(nameOfSheet);
+        // 2. Get the Excel sheet
+        XSSFSheet sheet = workbook.getSheet(nameOfSheet);
 
-        // Initiate the Cell address/reference
-        CellReference cellReference = new CellReference("A1");
+        // 3. Get the row
+        XSSFRow row = sheet.getRow(2);
 
-        // Get the row for the cell
-        XSSFRow row = sheet.getRow(cellReference.getCol());
+        // 4. Get cell from row
+        XSSFCell cell= row.getCell(2);
 
-        // Print out value of cell
-        System.out.println(row.getCell(3));
+        // 5. Print cell value
+        System.out.println(cell.getStringCellValue());
+
+        // TODO: loop through all rows and print cells you need
     }
 
 
