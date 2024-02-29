@@ -23,7 +23,7 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         // This code below change from printf to print (find out the difference)
         System.out.println("Hello and welcome!");
-        String fileLocation = "C:\\Users\\CP365941\\Downloads\\Code\\Java\\Excel reader\\input data.xlsx";
+        String fileLocation = "C:\\Users\\LocationOfSpreadaheetHere\\Downloads\\Code\\Java\\Excel reader\\input data.xlsx";
         String nameOfSheet = "Sheet1";
 
         // 1. Create Workbook instance holding reference to .xlsx file
